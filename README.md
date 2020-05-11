@@ -6,6 +6,7 @@ This is an example Android project to demonstrate how to:
 - Make RESTful HTTPS requests
 - Maintain cookies
 - Use ListView with custom row layout
+- HTTP is supported by checking AndroidManifestor.xml
 
 ## Running this project
 
