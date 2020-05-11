@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,24 +38,20 @@ public class Login extends ActionBarActivity {
          * In Android, localhost is the address of the device or the emulator.
          * To connect to your machine, you need to use the below IP address
          * **/
-        url = "https://10.0.2.2:8443/cs122b_spring20_project2_login_cart_example_war/api/";
+        url = "https://10.0.2.2:8443/cs122b-spring20-project2-login-cart-example/api/";
 
         //assign a listener to call a function to handle the user request when clicking a button
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                connectToTomcat();
+                login();
             }
         });
     }
 
-    public void connectToTomcat() {
+    public void login() {
 
-        if (!username.getText().toString().equals("anteater") || !password.getText().toString().equals("123456")) {
-            message.setText("Wrong username or password");
-
-            return;
-        }
+        message.setText("Trying to login");
         // Use the same network queue across our application
         final RequestQueue queue = NetworkManager.sharedManager(this).queue;
         //request type is POST
