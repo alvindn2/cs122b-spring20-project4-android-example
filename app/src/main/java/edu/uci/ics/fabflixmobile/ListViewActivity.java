@@ -2,6 +2,8 @@ package edu.uci.ics.fabflixmobile;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,10 +24,13 @@ public class ListViewActivity extends Activity {
         ListView listView = findViewById(R.id.list);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            Movie movie = movies.get(position);
-            String message = String.format("Clicked on position: %d, name: %s, %d", position, movie.getName(), movie.getYear());
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Movie movie = movies.get(position);
+                String message = String.format("Clicked on position: %d, name: %s, %d", position, movie.getName(), movie.getYear());
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
