@@ -58,7 +58,7 @@ public class Login extends ActionBarActivity {
         final StringRequest loginRequest = new StringRequest(Request.Method.POST, url + "login", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                //TODO should parse the json response to redirect to appropriate functions.
                 Log.d("login.success", response);
                 //initialize the activity(page)/destination
                 Intent listPage = new Intent(Login.this, ListViewActivity.class);
